@@ -1,18 +1,27 @@
 <template>
   <div id="app">
-    <div v-if="!cardShow" class="wrapper">
-      <div class="mail" >
-        <div class="cover" @click="cardShow=!cardShow"></div>
-        <div class="letter" ><h1 >открыть</h1></div>
-      </div>
-      <div class="subscription-text">
+<!--    <div v-if="isLoading" class="wrapper">-->
+<!--      <img  src = "./assets/loadimg.gif" height="200"/>-->
+<!--      <div class="description-text">Загрузка..</div>-->
+<!--    </div>-->
+
+    <div >
+      <div v-if="!cardShow" class="description-text">
         Вам письмо, откройте конверт :)
       </div>
-    </div>
-    <Card v-if="cardShow"></Card>
+      <div v-if="!cardShow" class="wrapper">
 
-    <div @click="cardShow=!cardShow" style="color: #dedede; text-align: center">
-      open=============
+        <div class="mail">
+          <div class="cover" @click="cardShow=!cardShow"></div>
+          <div class="letter"><h1>открыть</h1></div>
+        </div>
+
+      </div>
+      <Card v-if="cardShow"></Card>
+
+      <div @click="cardShow=!cardShow" style="color: #dedede; text-align: center">
+        open=============
+      </div>
     </div>
 
   </div>
@@ -27,12 +36,16 @@ export default {
   components: {Card},
   data() {
     return{
+      isLoading: true,
       cardShow: false,
     }
   },
 
   methods:{
 
+  },
+  mounted() {
+    setTimeout(() => this.isLoading = false, 4000);
   }
 }
 </script>
@@ -45,7 +58,7 @@ export default {
 }
 
 body {
-  background: #302929;
+  background: #393D3E;
 }
 
 .wrapper{
@@ -148,11 +161,12 @@ body {
   transition: all 1s 1s ease;
 }
 
-.subscription-text{
+.description-text{
   margin: 10px 0;
   text-align: center;
   font-size: 20px;
   color: #798992;
+  font-family: system-ui;
 }
 
 </style>
