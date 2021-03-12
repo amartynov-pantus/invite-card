@@ -193,23 +193,36 @@ input {
 .name1, .name2, .ampersand {
   font-size: 5em;
   text-align: center;
+  display: block;
+  position: absolute;
+  animation: 1s ease-out 0s 1 animation-name;
+  transition: transform 1s linear;
+  transform-origin: top left;
+  transform-style: preserve-3D;
 }
 
 .name1 {
-  position: relative;
-  top: 0;
-  left: 14px;
-  -webkit-transition: width 2s, height 2s,  -webkit-transform 2s;
-  transition: width 2s, height 2s,  transform 2s;
-  animation: 4s ease-out 0s 1 animation-name;
+  /*position: relative;*/
+  top: 0px;
+  left: 22px;
+  -webkit-transition: width 2s, height 2s,  -webkit-transform 5s;
+  /*transition: width 2s, height 2s,  transform 5s;*/
+  /*animation: 2s ease-out 0s 1 animation-name;*/
+  /*transition: transform 1s linear;*/
+  /*transform-origin: top left;*/
+  /*transform-style: preserve-3D;*/
+
+
 }
 
 @keyframes animation-name{
   0%{
     opacity: .5;
     top: 100px;
+    color: #ff393c;
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
+
   }
   100%{
 
@@ -218,24 +231,24 @@ input {
 
 
 .name2 {
-  position: relative;
-  top: 61px;
-  left: 13px;
+  /*position: relative;*/
+  top: 72px;
+  left: 112px;
 }
 
 .ampersand {
   font-style: italic;
-  position: relative;
-  top: 30px;
-  left: 16px;
+  /*position: relative;*/
+  top: 36px;
+  left: 60px;
 }
 
 .date {
   border-top: 1px solid #575557;
   border-bottom: 1px solid #575557;
-  position: relative;
-  top: 90px;
-  left: -108px;
+  position: absolute;
+  top: 159px;
+  left: 60px
 }
 
 

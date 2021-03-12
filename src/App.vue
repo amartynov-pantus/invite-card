@@ -4,7 +4,9 @@
 <!--      <img  src = "./assets/loadimg.gif" height="200"/>-->
 <!--      <div class="description-text">Загрузка..</div>-->
 <!--    </div>-->
-
+    <div @click="cardShow=!cardShow" style="color: #dedede; text-align: center">
+      open=============
+    </div>
     <div >
       <div v-if="!cardShow" class="description-text">
         Вам письмо, откройте конверт :)
@@ -19,9 +21,7 @@
       </div>
       <Card v-if="cardShow"></Card>
 
-      <div @click="cardShow=!cardShow" style="color: #dedede; text-align: center">
-        open=============
-      </div>
+
     </div>
 
   </div>
