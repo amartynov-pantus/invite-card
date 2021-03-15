@@ -16,10 +16,10 @@
       <input type="checkbox"  />
 
       <transition name="animation-rotate" mode="out-in">
-      <div v-if="showRotate" class="card" v-on:animationend="runNext">
+      <div v-if="showRotate" class="card" v-on:animationend="runNext" @click="showBack=true">
         <div class="front">
 
-                <div class="logo" v-if="showRoll">
+                <div class="logo" v-if="showRoll" >
                   <span class="name1" >С</span>
                   <span class="ampersand">и</span>
                   <span class="name2">А</span>
@@ -29,10 +29,10 @@
 
         </div>
         <div class="back">
+          <template   v-if="showBack">
+          <div v-on:animationend="showBackEvent = true" class="back-logo">
 
-          <div class="back-logo">
-
-            <div class="back-logo__text" v-if="showRoll">
+            <div class="back-logo__text" >
 
               <span >София</span>
               <span >и</span>
@@ -41,7 +41,7 @@
             </div>
 
           </div>
-          <div class="back-event">
+          <div v-if="showBackEvent" v-on:animationend="showBackPerson = true" class="back-event">
 
             <div class="back-event__date-box">
               <div class="back-event__day">17</div>
@@ -58,11 +58,11 @@
             </div>
 
           </div>
-          <div class="back-person">
+          <div v-if="showBackPerson" class="back-person">
             <span>Андрей и Мария, мы будем счастливы </span> <br>
             <span>разделить с вами этот чудесный день!</span>
           </div>
-
+          </template>
         </div>
       </div>
       </transition>
@@ -83,14 +83,16 @@ export default {
   data() {
     return {
       showRotate: false,
-      showRoll: false
+      showRoll: false,
+      showBack: false,
+      showBackEvent: false,
+      showBackPerson: false,
     }
 
   },
 
   methods: {
     runNext(){
-      // console.log('ANIM END')
       this.showRoll = true
     }
   },
@@ -312,6 +314,8 @@ input {
   color: #ff4f90;
   font-size: 53px;
   line-height: 40px;
+  animation: 3s ease-out 0s 1 back-text;
+
 }
 .back-logo__text > span {
   display: block;
@@ -329,6 +333,9 @@ input {
   justify-content: center;
   align-items: center;
   font-size: 25px;
+
+  animation: 3s ease-out 0s 1 back-text;
+  /*opacity: .1;*/
 }
 
 .back-event > div {
@@ -373,8 +380,28 @@ input {
   font-size: 26px;
   color: #ff84de;
   margin-top: 10%;
+  animation: 3s ease-out 0s 1 back-text;
 }
 
+
+
+@keyframes back-text{
+  0%{
+    opacity: .0;
+
+  }
+  20%{
+    opacity: .1;
+
+  }
+  60%{
+    opacity: .3;
+
+  }
+  100%{
+    opacity: 1;
+  }
+}
 
 
 .Blazing {
