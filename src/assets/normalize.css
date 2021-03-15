@@ -347,3 +347,32 @@ template {
 [hidden] {
     display: none;
 }
+
+
+
+@font-face {
+    font-family: 'RosaMarena';
+    src:  url('~@/assets/fonts/rosa-morena.ttf');
+}
+
+@font-face {
+    font-family: 'OpenSansCondensed';
+    src:  url('~@/assets/fonts/ofont.ru_Open Sans Condensed.ttf');
+}
+
+@font-face {
+    font-family: 'AlmaticBold';
+    src:  url('~@/assets/fonts/AlmaticBold.ttf');
+}
+@font-face {
+    font-family: 'AlmaticRegular';
+    src:  url('~@/assets/fonts/AlmaticRegular.ttf');
+}
+@font-face {
+    font-family: 'CaveatRegular';
+    src:  url('~@/assets/fonts/Caveat-Regular.ttf');
+}
+@font-face {
+    font-family: 'CaveatSemiBold';
+    src:  url('~@/assets/fonts/Caveat-SemiBold.ttf');
+}
