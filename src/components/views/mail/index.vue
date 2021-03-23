@@ -1,40 +1,44 @@
 <template>
-  <div >
-    <div v-if="!cardShow" class="description-text">
+  <div>
+
+    <div @click="show=!show" style="color: #dedede; text-align: center">
+      open=============
+    </div>
+
+    <div v-if="!show" class="tooltip-text">
       Вам письмо, откройте конверт :)
     </div>
-    <div v-if="!cardShow" class="wrapper">
+    <div v-if="!show" class="wrapper">
 
       <div class="mail">
-        <div class="cover" @click="cardShow=!cardShow"></div>
+        <div class="cover" @click="show=!show"></div>
         <div class="letter"><h1>открыть</h1></div>
       </div>
 
     </div>
-    <Card v-if="cardShow"></Card>
+    
+    <book v-if="show"/>
 
 
   </div>
 </template>
 
 <script>
+import Book from "@/components/views/book/index";
 export default {
-name: "mail"
+  name: "mail",
+  components: {Book},
+  data() {
+    return {
+      show: false,
+    }
+  },
 }
 </script>
 
 <style scoped lang="scss">
 
-.wrapper {
-  position: absolute;
 
-  /* Absolute positioning */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-/* Move x,y */
-}
 
 .mail {
   width: 300px;
@@ -42,16 +46,12 @@ name: "mail"
   background: #ff8789;
   position: relative;
   transform-style: preserve-3d;
-
   /* Keep 3Dx effect */
   border-bottom-left-radius: 20px;
-
   /* Lower left corner */
   border-bottom-right-radius: 20px;
   cursor: pointer;
-
   /* Mouse style */
-
   &:before {
     /* add before */
     content: '';
@@ -66,7 +66,7 @@ name: "mail"
 
     /* Cascading sort */
     border-bottom-right-radius: 10px;
-}
+  }
 
   &:after {
     content: '';
@@ -79,7 +79,7 @@ name: "mail"
     border-bottom: 100px solid #ff5355;
     z-index: 4;
     border-bottom-left-radius: 10px;
-}
+  }
 }
 
 /* Right */
@@ -128,45 +128,36 @@ name: "mail"
     animation: blink 1s linear infinite;
     animation-delay: 3s;
     text-decoration-line: underline;
-}
+  }
 }
 
 @keyframes blink {
-0% {
-opacity: 0;
-}
+  0% {
+    opacity: 0;
+  }
 
-50% {
-opacity: .5;
-}
+  50% {
+    opacity: .5;
+  }
 
-100% {
-opacity: 1;
-}
+  100% {
+    opacity: 1;
+  }
 }
 
 .mail:hover {
   .cover:before {
     transform: rotateX(180deg);
-
     /* Flip the X axis */
     transition: all 1s ease;
-}
+  }
 
   .letter {
     top: -80px;
-
     /* Use top to move */
     transition: all 1s 1s ease;
-}
+  }
 }
 
-.description-text {
-  margin: 10px 0;
-  text-align: center;
-  font-size: 20px;
-  color: #798992;
-  font-family: system-ui;
-}
 
 </style>

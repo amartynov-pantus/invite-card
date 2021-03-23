@@ -1,15 +1,13 @@
 <template>
   <div id="app">
-    <div v-if="isLoading" class="wrapper">
-      <img  src = "./assets/loadimg.gif" height="200"/>
-      <div class="description-text">Загрузка..</div>
-    </div>
-
-<!--    <div @click="cardShow=!cardShow" style="color: #dedede; text-align: center">-->
-<!--      open=============-->
+<!--    <div v-if="isLoading" class="wrapper">-->
+<!--      <img  src = "./assets/loadimg.gif" height="200"/>-->
+<!--      <div class="tooltip-text">Загрузка..</div>-->
 <!--    </div>-->
 
-   <mail></mail>
+
+
+   <mail ></mail>
 
   </div>
 </template>
@@ -25,7 +23,6 @@ export default {
   data() {
     return{
       isLoading: true,
-      cardShow: false,
     }
   },
 
@@ -39,6 +36,7 @@ export default {
 </script>
 
 <style lang="scss">
+
 @import "assets/normalize.css";
 
 #app {}
@@ -49,16 +47,13 @@ body {
 
 .wrapper {
   position: absolute;
-
-  /* Absolute positioning */
   top: 50%;
   left: 50%;
+  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-
-  /* Move x,y */
 }
 
-.description-text {
+.tooltip-text {
   margin: 10px 0;
   text-align: center;
   font-size: 20px;

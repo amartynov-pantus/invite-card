@@ -105,6 +105,7 @@ export default {
 </script>
 
 <style scoped>
+
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 /*@import url('~@/assets/rosa-morena.ttf');*/
 .container{
