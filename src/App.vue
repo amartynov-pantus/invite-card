@@ -1,28 +1,15 @@
 <template>
   <div id="app">
-<!--    <div v-if="isLoading" class="wrapper">-->
-<!--      <img  src = "./assets/loadimg.gif" height="200"/>-->
-<!--      <div class="description-text">Загрузка..</div>-->
+    <div v-if="isLoading" class="wrapper">
+      <img  src = "./assets/loadimg.gif" height="200"/>
+      <div class="description-text">Загрузка..</div>
+    </div>
+
+<!--    <div @click="cardShow=!cardShow" style="color: #dedede; text-align: center">-->
+<!--      open=============-->
 <!--    </div>-->
-    <div @click="cardShow=!cardShow" style="color: #dedede; text-align: center">
-      open=============
-    </div>
-    <div >
-      <div v-if="!cardShow" class="description-text">
-        Вам письмо, откройте конверт :)
-      </div>
-      <div v-if="!cardShow" class="wrapper">
 
-        <div class="mail">
-          <div class="cover" @click="cardShow=!cardShow"></div>
-          <div class="letter"><h1>открыть</h1></div>
-        </div>
-
-      </div>
-      <Card v-if="cardShow"></Card>
-
-
-    </div>
+   <mail></mail>
 
   </div>
 </template>
@@ -30,10 +17,11 @@
 <script>
 
 
-import Card from "@/components/views/Card";
+// import Card from "@/components/views/card/Card";
+import Mail from "@/components/views/mail/index";
 export default {
   name: 'App',
-  components: {Card},
+  components: {Mail},
   data() {
     return{
       isLoading: true,
@@ -50,123 +38,32 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 @import "assets/normalize.css";
 
-#app {
-
-}
+#app {}
 
 body {
   background: #393D3E;
 }
 
-.wrapper{
-  position: absolute; /* Absolute positioning */
+.wrapper {
+  position: absolute;
+
+  /* Absolute positioning */
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);  /* Move x,y */
+  transform: translate(-50%, -50%);
+
+  /* Move x,y */
 }
 
-.mail{
-  width: 300px;
-  height: 200px;
-  background: #ff8789;
-  position: relative;
-  transform-style: preserve-3d; /* Keep 3Dx effect */
-  border-bottom-left-radius: 20px; /* Lower left corner */
-  border-bottom-right-radius: 20px;
-  cursor: pointer; /* Mouse style */
-}
-/* Right */
-.mail:before{ /* add before */
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  border-left: 140px solid Transparent;
-  border-right: 150px solid #ff393c;
-  border-top: 100px solid Transparent;
-  border-bottom: 100px solid #ff393c;
-  z-index: 5; /* Cascading sort */
-  border-bottom-right-radius: 10px;
-}
-/* left */
-.mail:after{
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-left: 150px solid #ff5355;
-  border-right: 140px solid Transparent;
-  border-top: 100px solid Transparent;
-  border-bottom: 100px solid #ff5355;
-  z-index: 4;
-  border-bottom-left-radius: 10px;
-}
-
-.cover:before{ /* Above */
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-left: 150px solid transparent;
-  border-right: 150px solid transparent;
-  border-top: 100px solid #ff8789;
-  border-bottom: 100px solid transparent;
-  z-index: 6;
-  transform-origin: top;
-  transform: rotateX(0deg);
-  transition: all 1s 1s ease;
-}
-
-.letter{ /* Card */
-  position: absolute;
-  z-index: 3;
-  top: 0px;
-  left: 10px;
-  background: #dedede;
-  width: 280px;
-  height: 180px;
-  border-radius: 20px;
-  transition: all 1s ease; /* Transition time */
-}
-
-.letter h1{ /* @ symbol */
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  font-size: 30px;
-  color: #798992;
-  font-weight: 900;
-  animation: blink 1s linear infinite;
-  animation-delay: 3s;
-  text-decoration-line: underline;
-}
-
-@keyframes blink{
-  0%{opacity: 0;}
-  50%{opacity: .5;}
-  100%{opacity: 1;}
-}
-
-.mail:hover .cover:before{
-  transform: rotateX(180deg); /* Flip the X axis */
-  transition: all 1s ease;
-}
-
-.mail:hover .letter{
-  top: -80px; /* Use top to move */
-  transition: all 1s 1s ease;
-}
-
-.description-text{
+.description-text {
   margin: 10px 0;
   text-align: center;
   font-size: 20px;
   color: #798992;
-  font-family: system-ui;
+  font-family: system-ui, serif;
 }
 
 </style>
