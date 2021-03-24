@@ -1,13 +1,13 @@
 <template>
-<div @click="clickNext">contents Page 1</div>
+<div>contents episode last</div>
 </template>
 
 <script>
 export default {
-name: "first-page",
+name: "last",
   methods: {
     clickNext(){
-      this.$emit('update:episodePlay', 'last-pages')
+      this.$emit('update:episodePlayed', 'last')
     }
   },
 }

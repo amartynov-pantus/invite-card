@@ -5,6 +5,9 @@
 <script>
 export default {
 name: "back",
+  clickNext(){
+    this.$emit('update:episodePlayed', 'back')
+  }
 }
 </script>
 

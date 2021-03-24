@@ -3,37 +3,48 @@
 
   <div class="book-container">
 
-    {{  episodeOrderOfPlay.filter( (elem, index, arr) => { if (elem === currentEpisode) { return arr[index] } }) }}
+ dfdf   {{  currentEpisode !== null ? getNextEpisode(episodeOrderOfPlay, currentEpisode) :  episodeOrderOfPlay[0]}}
 
 
+    <scenes
+        :bookmark="currentEpisode !== null ? getNextEpisode(episodeOrderOfPlay, currentEpisode) :  episodeOrderOfPlay[0]"
+        :episodePlayed.sync="currentEpisode"
+    />
 
-<!--    <cover  :bookmark="episodeOrderOfPlay.filter( (elem, index, arr) => { if (elem === currentEpisode) {return arr[index+1]}}).toString()"  :episodePlay.sync="currentEpisode" />-->
 
-    <cover  :bookmark="episodeOrderOfPlay.filter( (elem, index, arr) => {return  elem === currentEpisode ? arr[index+1] : null }).toString()"  :episodePlay.sync="currentEpisode" />
-
-<!--    <cover bookmark="Back"  />-->
-
-<!--    <contents v-if="currentEpisode === episodeOrderOfPlay[1]" bookmark="FirstPage" :episodePlay.sync="currentEpisode" />-->
 
   </div>
 </template>
 
 <script>
-// import Contents from "@/components/views/book/contents/index";
-import Cover from "@/components/views/book/cover/index";
+
+import Scenes from "@/components/views/book/scenes/index";
 export default {
 name: "book",
-  components: {Cover, },
+  components: {Scenes, },
 
   data(){
     return{
-      episodeOrderOfPlay: ['front', 'first-pages', 'last-pages', 'back'],
-      currentEpisode: 'front',
+      // порядок сцен
+      episodeOrderOfPlay: ['front', 'first', 'last', 'back'],
+      currentEpisode: null,
     }
   },
 
   mounted() {
     console.log('book')
+  },
+
+  methods: {
+
+    getNextEpisode(array, currentElement) {
+      for (let i = 0; i < array.length; i++) {
+        if (array[i] === currentElement) {
+          return array[i + 1]
+        }
+      }
+    }
+
   },
 
 

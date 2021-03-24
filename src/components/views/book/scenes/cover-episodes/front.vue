@@ -51,7 +51,7 @@ name: "front",
     },
 
     clickNext(){
-      this.$emit('update:episodePlay', 'front')
+      this.$emit('update:episodePlayed', 'front')
     }
 
   },
