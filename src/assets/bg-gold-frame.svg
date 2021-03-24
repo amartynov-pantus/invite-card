@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 750" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="558" y1="-5.182" x2="558" y2="429.311" id="gradient-0">
+      <stop offset="0%" style="stop-color: #BF953F"/>
+      <stop offset="25%" style="stop-color: #FCF6BA"/>
+      <stop offset="50%" style="stop-color: #D4AF37"/>
+      <stop offset="100%" style="stop-color: #F0C800"/>
+    </linearGradient>
+  </defs>
+  <path d="M 558 6.36 L 785.226 164.346 L 698.434 419.974 L 417.566 419.974 L 330.774 164.346 Z" style="fill-opacity: 0; fill: rgb(232, 180, 48); paint-order: stroke; stroke: url(#gradient-0); stroke-width: 3px;" transform="matrix(-0.816158, 0.577829, -0.411325, -0.93404, 798.619761, 295.171797)" bx:shape="n-gon 558 235 238.92 228.64 5 0 1@5886680e" bx:origin="0.489 0.518"/>
+  <path d="M 558 -5.182 L 759.937 160.78 L 682.804 429.311 L 433.196 429.311 L 356.063 160.78 Z" style="fill-opacity: 0; fill: rgb(232, 180, 48); stroke-width: 3px; paint-order: fill; stroke: url(#gradient-0);" transform="matrix(0.843564, -0.537029, 0.364934, 0.953123, -309.682921, 478.857115)" bx:shape="n-gon 558 235 212.329 240.182 5 0 1@3d93608a" bx:origin="0.489 0.518"></path>
+
+</svg>
+

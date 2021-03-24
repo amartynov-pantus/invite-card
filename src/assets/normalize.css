@@ -376,3 +376,8 @@ template {
     font-family: 'CaveatSemiBold';
     src:  url('~@/assets/fonts/Caveat-SemiBold.ttf');
 }
+
+@font-face {
+    font-family: 'BikhamCry';
+    src:  url('~@/assets/fonts/bikham-cry.ttf');
+}

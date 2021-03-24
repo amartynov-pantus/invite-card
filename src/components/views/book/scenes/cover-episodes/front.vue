@@ -1,23 +1,40 @@
 <template>
 <div >
-  <div class="description-text">
+  <div class="tooltip-text">
     Переверни :)
   </div>
 
   <label :class="['wrapper', { 'animation-roll': showRoll }]"  >
 
-    <input type="checkbox"  />
 
     <transition name="animation-rotate" mode="out-in">
       <div v-if="showRotate" class="card" @animationend="runNext" >
 
         <div class="front" @click="clickNext">
 
+          <div class="bg-frame wrapper" v-show="showRoll">
+
+
+
+
+            <div class="box-gold-frame">
+              <img
+
+                  class="bg-gold-frame"
+                  :src="require('@/assets/bg-gold-frame.svg')"
+                  alt="Icon Applicabilities"
+              />
+            </div>
+
+
+          </div>
+
           <div class="logo" v-if="showRoll" >
-            <span class="name1" >С</span>
+
+            <span class="name1" >Андрей</span>
             <span class="ampersand">и</span>
-            <span class="name2">А</span>
-            <span class="date">05.06.2021</span>
+            <span class="name2">София</span>
+<!--            <span class="date">05.06.2021</span>-->
           </div>
 
 
@@ -37,15 +54,13 @@ name: "front",
     return {
       showRotate: false,
       showRoll: false,
-      showBack: false,
-      showBackEvent: false,
-      showBackPerson: false,
     }
 
   },
 
   methods: {
     runNext(){
+      console.log('end')
       this.showRoll = true
 
     },
@@ -125,7 +140,7 @@ label {
 }
 
 .front {
-  background: url('~@/assets/logoCard.jpg') no-repeat center center;
+  background: url('~@/assets/marble.jpg') no-repeat center center;
   background-size: 99%;
   position: absolute;
   height: 100%;
@@ -136,19 +151,54 @@ label {
   border-radius: 2px;
   display: flex;
   align-items: center;
+
+
+
+
+}
+
+.bg-frame{
+
+  .box-gold-frame{
+
+    height: 700px;
+    position: relative;
+    top: -30px;
+
+    .bg-gold-frame{
+      height: 100%;
+    }
+  }
+
+  &:before{
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 493px;
+    bottom: -24px;
+    right: -12px;
+    background: white;
+    border-radius: 32px 4px 4px 32px;
+    box-shadow: inset 4px 6px 0px 0px #e4e0ce;
+    background-image: linear-gradient(to bottom, transparent 6px, #E4E0CE 8px, transparent 8px, transparent 12px, #E4E0CE 12px, transparent 14px, transparent 18px, #E4E0CE 18px, transparent 20px, transparent 24px, #E4E0CE 24px, transparent 26px, transparent 30px, #E4E0CE 30px, transparent 32px, transparent 36px, #E4E0CE 36px, transparent 38px, transparent 42px, #E4E0CE 42px, transparent 44px, transparent 48px, #E4E0CE 48px, transparent 50px);
+  }
+
+
 }
 
 
 .logo {
-  width: 165px !important;
-  height: 180px !important;
-  font-family: Baskerville, serif;
-  color: #ff4f90;
+  width: 253px !important;
+  height: 230px !important;
+
+  color: #BF953F;
+  //color: #D4AF37;
+
   position: relative !important;
   margin: 0 auto;
 
   .name1, .name2, .ampersand {
-    font-size: 5em;
+    font-size: 4em;
     text-align: center;
     display: block;
     position: absolute;
@@ -156,25 +206,24 @@ label {
     transition: transform 1s linear;
     transform-origin: top left;
     transform-style: preserve-3D;
-    font-family: "RosaMarena",serif;
-
+    font-family: "BikhamCry",serif;
   }
 
   .name1 {
-    top: 26px;
-    left: 28px;
+    top: 0;
+    left: 0;
     -webkit-transition: width 2s, height 2s,  -webkit-transform 5s;
   }
 
   .name2 {
-    top: 72px;
-    left: 77px;
+    top: 128px;
+    left: 100px;
   }
 
   .ampersand {
-    font-style: italic;
-    top: 36px;
-    left: 75px;
+    //font-style: italic;
+    top: 50px;
+    left: 116px;
   }
 
   .date {
