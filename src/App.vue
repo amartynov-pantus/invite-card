@@ -37,7 +37,7 @@ export default {
 
 <style lang="scss">
 
-@import "assets/normalize.css";
+@import "assets/css/normalize.css";
 
 #app {}
 

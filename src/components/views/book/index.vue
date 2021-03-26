@@ -3,7 +3,7 @@
 
   <div class="book-container">
 
- dfdf   {{  currentEpisode !== null ? getNextEpisode(episodeOrderOfPlay, currentEpisode) :  episodeOrderOfPlay[0]}}
+<!--  {{  currentEpisode !== null ? getNextEpisode(episodeOrderOfPlay, currentEpisode) :  episodeOrderOfPlay[0]}}-->
 
 
     <scenes

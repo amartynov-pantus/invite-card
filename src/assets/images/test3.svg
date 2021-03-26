@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 750" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="558" y1="-5.182" x2="558" y2="429.311" id="gradient-0" gradientTransform="matrix(2.608031, -0.000001, 0.000011, 2.867045, -897.284533, -438.756912)">
+      <stop offset="0" style="stop-color: #BF953F"/>
+      <stop offset="0.25" style="stop-color: #FCF6BA"/>
+      <stop offset="0.5" style="stop-color: #D4AF37"/>
+      <stop offset="1" style="stop-color: #F0C800"/>
+    </linearGradient>
+  </defs>
+  <path d="M 558 -150.732 L 926.299 115.802 L 785.621 547.064 L 330.379 547.064 L 189.701 115.802 Z" style="fill-opacity: 0; fill: rgb(232, 180, 48); paint-order: stroke; stroke: url(#gradient-0); stroke-width: 3px;" transform="matrix(-0.771461, 0.636277, -0.373542, -0.988156, 726.502201, 242.557384)" bx:shape="n-gon 558 235 387.252 385.732 5 0 1@555310a7" bx:origin="0.489 0.518"/>
+  <path d="M 558 -173.174 L 882.927 108.867 L 758.816 565.22 L 357.184 565.22 L 233.073 108.867 Z" style="fill-opacity: 0; fill: rgb(232, 180, 48); stroke-width: 3px; paint-order: fill; stroke: url(#gradient-0);" transform="matrix(0.803217, -0.595687, 0.328996, 1.001002, -279.137436, 507.459956)" bx:shape="n-gon 558 235 341.648 408.174 5 0 1@8ed44c19" bx:origin="0.489 0.518"/>
+</svg>

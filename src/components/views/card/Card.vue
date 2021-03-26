@@ -162,7 +162,7 @@ label {
 }
 
 .front {
-  background: url('~@/assets/logoCard.jpg') no-repeat center center;
+  background: url('~@/assets/images/logoCard.jpg') no-repeat center center;
   background-size: 99%;
   position: absolute;
   height: 100%;
@@ -178,7 +178,7 @@ label {
 
 
 .back {
-  background: url('~@/assets/textCard.jpg') no-repeat center center;
+  background: url('~@/assets/images/textCard.jpg') no-repeat center center;
   color: #FFF;
   -webkit-transform: rotateX(180deg);
   transform: rotateX(180deg);
