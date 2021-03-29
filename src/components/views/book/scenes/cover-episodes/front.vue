@@ -12,40 +12,34 @@
 
         <div class="front" @click="clickNext" >
 
-<!--          <div class="bg-frame wrapper" v-show="showRoll">-->
+          <div class="bg-frame wrapper" v-show="showRoll">
 
 
 
 
-<!--            <div class="box-gold-frame">-->
-<!--              <img-->
+            <div class="box-gold-frame">
+              <img
 
-<!--                  class="bg-gold-frame"-->
-<!--                  :src="require('@/assets/images/bg-gold-frame.svg')"-->
-<!--                  alt="Icon Applicabilities"-->
-<!--              />-->
-<!--            </div>-->
-
-
-<!--          </div>-->
-
-<!--          <div class="logo" v-if="showRoll" >-->
-
-<!--            <span class="name1" >Андрей</span>-->
-<!--            <span class="ampersand">и</span>-->
-<!--            <span class="name2">София</span>-->
-<!--&lt;!&ndash;            <span class="date">05.06.2021</span>&ndash;&gt;-->
-<!--          </div>-->
-
-
-
-          <div id="cardflip">
-            <div class="inside">Inside</div>
-            <div id="card1"  :class="{'flip': showOpenedBook}">
-              <div class="front">Outside</div>
-              <div class="back">Opened</div>
+                  class="bg-gold-frame"
+                  :src="require('@/assets/images/bg-gold-frame.svg')"
+                  alt="Icon Applicabilities"
+              />
             </div>
+
+
           </div>
+
+          <div class="logo" v-if="showRoll" >
+
+            <span class="name1" >Андрей</span>
+            <span class="ampersand">и</span>
+            <span class="name2">София</span>
+<!--            <span class="date">05.06.2021</span>-->
+          </div>
+
+
+
+
 
 
         </div>
@@ -65,7 +59,7 @@ name: "front",
     return {
       showRotate: false,
       showRoll: false,
-      showOpenedBook: false,
+      // showOpenedBook: false,
     }
 
   },
@@ -74,14 +68,12 @@ name: "front",
     runNext(){
       console.log('end')
       this.showRoll = true
-
-
-
     },
 
     clickNext(){
       // this.$emit('update:episodePlayed', 'front')
-      this.showOpenedBook = true
+      // this.showOpenedBook = true
+      this.$emit('update:episodePlayed', 'front')
     }
 
   },

@@ -26,7 +26,7 @@ name: "book",
   data(){
     return{
       // порядок сцен
-      episodeOrderOfPlay: ['front', 'first', 'last', 'back'],
+      episodeOrderOfPlay: ['front', 'back'],
       currentEpisode: null,
     }
   },
