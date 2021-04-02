@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import Book from "@/components/views/book/index";
+import Book from "@/components/views/movie/index";
 export default {
   name: "mail",
   components: {Book},

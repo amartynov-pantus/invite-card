@@ -18,7 +18,7 @@
 
 <script>
 
-import Scenes from "@/components/views/book/scenes/index";
+import Scenes from "@/components/views/movie/scenes/index";
 export default {
 name: "book",
   components: {Scenes, },

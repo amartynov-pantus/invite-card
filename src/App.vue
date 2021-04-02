@@ -15,7 +15,7 @@
 <script>
 
 
-// import Card from "@/components/views/card/Card";
+
 import Mail from "@/components/views/mail/index";
 export default {
   name: 'App',
