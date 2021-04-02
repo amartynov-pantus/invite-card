@@ -1,38 +1,37 @@
 <template>
   <div>
 
-    <div @click="show=!show" style="color: #dedede; text-align: center">
+    <div @click="nextScene" style="color: #dedede; text-align: center">
       open=============
     </div>
 
-    <div v-if="!show" class="tooltip-text">
+    <div class="tooltip-text" >
       Вам письмо, откройте конверт :)
     </div>
-    <div v-if="!show" class="wrapper">
+    <div class="wrapper">
 
       <div class="mail">
-        <div class="cover" @click="show=!show"></div>
+        <div class="cover" @click="nextScene"></div>
         <div class="letter"><h1>открыть</h1></div>
       </div>
 
     </div>
-    
-    <book v-if="show"/>
 
 
   </div>
 </template>
 
 <script>
-import Book from "@/components/views/movie/index";
+
 export default {
   name: "mail",
-  components: {Book},
-  data() {
-    return {
-      show: false,
+
+  methods: {
+    nextScene(){
+      this.$emit('update:sceneEndingName', 'mail')
     }
-  },
+  }
+
 }
 </script>
 

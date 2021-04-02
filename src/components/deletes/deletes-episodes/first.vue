@@ -24,7 +24,7 @@ name: "first",
 
   methods: {
     clickNext(){
-      this.$emit('update:episodePlayed', 'first')
+      this.$emit('update:sceneEndingName', 'first')
     }
   },
 }

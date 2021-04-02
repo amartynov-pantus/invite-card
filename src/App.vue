@@ -1,13 +1,10 @@
 <template>
   <div id="app">
-<!--    <div v-if="isLoading" class="wrapper">-->
-<!--      <img  src = "./assets/loadimg.gif" height="200"/>-->
-<!--      <div class="tooltip-text">Загрузка..</div>-->
-<!--    </div>-->
 
 
 
-   <mail ></mail>
+  <movie />
+
 
   </div>
 </template>
@@ -16,22 +13,14 @@
 
 
 
-import Mail from "@/components/views/mail/index";
+
+import Movie from "@/components/views/movie/index";
 export default {
   name: 'App',
-  components: {Mail},
-  data() {
-    return{
-      isLoading: true,
-    }
-  },
+  components: {Movie},
 
-  methods:{
 
-  },
-  mounted() {
-    setTimeout(() => this.isLoading = false, 4000);
-  }
+
 }
 </script>
 

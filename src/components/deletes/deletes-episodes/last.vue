@@ -7,7 +7,7 @@ export default {
 name: "last",
   methods: {
     clickNext(){
-      this.$emit('update:episodePlayed', 'last')
+      this.$emit('update:sceneEndingName', 'last')
     }
   },
 }

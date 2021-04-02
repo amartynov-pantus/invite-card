@@ -44,39 +44,39 @@
 
         </div>
 
-        <div class="front"  v-show="showBack">
+<!--        <div class="front"  v-show="showBack">-->
 
-          <div class="bg-frame wrapper" >
+<!--          <div class="bg-frame wrapper" >-->
 
-                  BACK
-
-
-<!--            <div class="box-gold-frame">-->
-<!--              <img-->
-
-<!--                  class="bg-gold-frame"-->
-<!--                  :src="require('@/assets/images/bg-gold-frame.svg')"-->
-<!--                  alt="Icon Applicabilities"-->
-<!--              />-->
-<!--            </div>-->
+<!--                  BACK-->
 
 
-          </div>
+<!--&lt;!&ndash;            <div class="box-gold-frame">&ndash;&gt;-->
+<!--&lt;!&ndash;              <img&ndash;&gt;-->
 
-          <div class="logo" v-if="showRoll" >
-
-            <span class="name1" >Андрей</span>
-            <span class="ampersand">и</span>
-            <span class="name2">София</span>
-            <!--            <span class="date">05.06.2021</span>-->
-          </div>
+<!--&lt;!&ndash;                  class="bg-gold-frame"&ndash;&gt;-->
+<!--&lt;!&ndash;                  :src="require('@/assets/images/bg-gold-frame.svg')"&ndash;&gt;-->
+<!--&lt;!&ndash;                  alt="Icon Applicabilities"&ndash;&gt;-->
+<!--&lt;!&ndash;              />&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
 
 
+<!--          </div>-->
+
+<!--          <div class="logo" v-if="showRoll" >-->
+
+<!--            <span class="name1" >Андрей</span>-->
+<!--            <span class="ampersand">и</span>-->
+<!--            <span class="name2">София</span>-->
+<!--            &lt;!&ndash;            <span class="date">05.06.2021</span>&ndash;&gt;-->
+<!--          </div>-->
 
 
 
 
-        </div>
+
+
+<!--        </div>-->
 
 
 
@@ -108,9 +108,9 @@ name: "front",
     },
 
     clickNext(){
-      // this.$emit('update:episodePlayed', 'front')
+      // this.$emit('update:sceneEndingName', 'front')
       // this.showOpenedBook = true
-      // this.$emit('update:episodePlayed', 'front')
+      // this.$emit('update:sceneEndingName', 'front')
       this.showBack = true
     }
 

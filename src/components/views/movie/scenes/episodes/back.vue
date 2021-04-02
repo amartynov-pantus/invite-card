@@ -72,7 +72,7 @@ name: "back",
 
   methods: {
     clickNext(){
-      this.$emit('update:episodePlayed', 'back')
+      this.$emit('update:sceneEndingName', 'back')
     },
     runNext(){
       console.log('end')

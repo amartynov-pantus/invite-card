@@ -8,7 +8,7 @@
 
     <scenes
         :bookmark="currentEpisode !== null ? getNextEpisode(episodeOrderOfPlay, currentEpisode) :  episodeOrderOfPlay[0]"
-        :episodePlayed.sync="currentEpisode"
+        :sceneEndingName.sync="currentEpisode"
     />
 
 
@@ -20,20 +20,17 @@
 
 import Scenes from "@/components/views/movie/scenes/index";
 export default {
-name: "book",
+name: "movie",
   components: {Scenes, },
 
   data(){
     return{
       // порядок сцен
-      episodeOrderOfPlay: ['front', 'back'],
+      episodeOrderOfPlay: ['mail','front', 'back'],
       currentEpisode: null,
     }
   },
 
-  mounted() {
-    console.log('book')
-  },
 
   methods: {
 
