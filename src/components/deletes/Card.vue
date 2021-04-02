@@ -17,6 +17,7 @@
 
       <transition name="animation-rotate" mode="out-in">
       <div v-if="showRotate" class="card" v-on:animationend="runNext" @click="showBack=true">
+
         <div class="front">
 
                 <div class="logo" v-if="showRoll" >
@@ -28,6 +29,7 @@
 
 
         </div>
+
         <div class="back">
           <template   v-if="showBack">
           <div v-on:animationend="showBackEvent = true" class="back-logo">
@@ -64,7 +66,9 @@
           </div>
           </template>
         </div>
+
       </div>
+
       </transition>
 
     </label>

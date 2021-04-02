@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <div @click="nextScene" style="color: #dedede; text-align: center">
+    <div @click="goNextScene" style="color: #dedede; text-align: center">
       open=============
     </div>
 
@@ -11,7 +11,7 @@
     <div class="wrapper">
 
       <div class="mail">
-        <div class="cover" @click="nextScene"></div>
+        <div class="cover" @click="goNextScene"></div>
         <div class="letter"><h1>открыть</h1></div>
       </div>
 
@@ -27,7 +27,7 @@ export default {
   name: "mail",
 
   methods: {
-    nextScene(){
+    goNextScene(){
       this.$emit('update:sceneEndingName', 'mail')
     }
   }

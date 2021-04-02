@@ -3,7 +3,7 @@
 
   <div class="book-container">
 
-<!--  {{  currentEpisode !== null ? getNextEpisode(episodeOrderOfPlay, currentEpisode) :  episodeOrderOfPlay[0]}}-->
+  {{  currentEpisode !== null ? getNextEpisode(episodeOrderOfPlay, currentEpisode) :  episodeOrderOfPlay[0]}}
 
 
     <scenes
@@ -26,7 +26,7 @@ name: "movie",
   data(){
     return{
       // порядок сцен
-      episodeOrderOfPlay: ['mail','front', 'back'],
+      episodeOrderOfPlay: ['front','flipe', 'back'],
       currentEpisode: null,
     }
   },
