@@ -1,7 +1,7 @@
 <template>
 
       <div class="wrapper">
-        <img  :src = "require('@/assets/images/loadimg.gif')" height="200"/>
+        <img :src = "require('@/assets/images/loadimg.gif')" height="200"/>
         <div class="tooltip-text">Загрузка..</div>
       </div>
 

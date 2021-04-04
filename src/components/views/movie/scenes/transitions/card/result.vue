@@ -1,10 +1,12 @@
 <template>
-<div></div>
+<div>
+  result
+</div>
 </template>
 
 <script>
 export default {
-name: "timmingToFinish"
+  name: "result"
 }
 </script>
 

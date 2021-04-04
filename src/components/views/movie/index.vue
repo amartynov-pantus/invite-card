@@ -26,7 +26,7 @@ name: "movie",
   data(){
     return{
       // порядок сцен
-      episodeOrderOfPlay: ['front','flipe', 'back'],
+      episodeOrderOfPlay: ['front',],
       currentEpisode: null,
     }
   },

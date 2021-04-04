@@ -63,7 +63,7 @@
 
     <div class="card" v-if="showRotate" @animationend="unlocked">
 
-      <div class="front">
+      <div class="front" @click="goBack">
 
         <div class="bg-frame wrapper" v-show="showRoll">
 
@@ -96,7 +96,25 @@
 
 
 
-      <div class="back">Back</div>
+      <div class="back">
+
+
+        <div class="bg-frame-back " v-if="showBackFrame">
+
+          <div class="box">
+            <div class="content">
+              <Legend v-if="true" />
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <Timming v-if="false"/>
+
+
+      </div>
 
 
 
@@ -112,12 +130,17 @@
 </template>
 
 <script>
+import Legend from "@/components/views/movie/scenes/transitions/card/legend";
+import Timming from "@/components/views/movie/scenes/transitions/card/timming";
 export default {
 name: "front",
+  components: {Timming, Legend},
   data() {
     return {
       showRotate: false,
       showRoll: false,
+
+      showBackFrame: false,
 
 
     }
@@ -134,6 +157,10 @@ name: "front",
 
       this.$emit('update:sceneEndingName', 'front')
 
+    },
+
+    goBack(){
+      this.showBackFrame = true
     }
 
   },
@@ -206,21 +233,24 @@ label {
   -webkit-transition: all 600ms;
   transition: all 600ms;
   z-index: 20;
+  color: #BF953F;
 
   & .back {
     -webkit-transform: rotateX(180deg);
     transform: rotateX(180deg);
   }
 
-  & div {
+  & .back {
     position: absolute;
     height: 100%;
     width: 100%;
     text-align: center;
-    line-height: 118px;
+
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border-radius: 2px;
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -290,6 +320,7 @@ input {
 
   position: relative !important;
   margin: 0 auto;
+  line-height: 118px;
 
   .name1, .name2, .ampersand {
     font-size: 4em;
@@ -348,6 +379,65 @@ input {
 .back{
   background: url('~@/assets/images/marble.jpg') no-repeat center center;
   background-size: 99%;
+}
+
+.bg-frame-back {
+  height: 99%;
+  width: 99%;
+  display: flex;
+  align-items: center;
+}
+
+
+.box
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90% !important;
+  height: 90% !important;
+  margin: 0 auto;
+  //padding: 2px;
+  background-color: #eaab00; /* gold */
+  /* Single pixel data uri image http://jsfiddle.net/LPxrT/
+  /* background-image: gold, gold, white */
+  background-image: url('data:image/gif;base64,R0lGODlhAQABAPAAAOqrAP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=='),  url('data:image/gif;base64,R0lGODlhAQABAPAAAOqrAP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=='),
+  url('data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==');
+  background-repeat: no-repeat;
+  background-size: 0 2px, 0 100%, 0% 2px;
+  background-position: top center, top center, bottom center;
+  -webkit-animation: drawBorderFromCenter 4s;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes drawBorderFromCenter {
+  0% {
+    background-size: 0 2px, 0 0, 100% 100%;
+  }
+  20% {
+    background-size: 100% 2px, 100% 0, 100% 100%;
+  }
+  66%
+  {
+    background-size: 100% 2px, 100% 98%, 100% 100%;
+  }
+  99%
+  {
+    background-size: 100% 2px, 100% 98%, 0 2px;
+  }
+}
+
+
+
+.content
+{
+  background-image: url('~@/assets/images/marble.jpg');
+  background-size: cover;
+  padding: 2em;
+  text-align: center;
+
+  height: 90% !important;
+  width: 85% !important;
 }
 
 

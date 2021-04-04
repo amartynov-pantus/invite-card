@@ -381,3 +381,18 @@ template {
     font-family: 'BikhamCry';
     src:  url('~@/assets/fonts/bikham-cry.ttf');
 }
+
+
+
+@font-face {
+    font-family: 'Curale';
+    src:  url('~@/assets/fonts/Curale.ttf');
+}
+
+
+@font-face {
+    font-family: 'Arimo';
+    src:  url('~@/assets/fonts/Arimo.ttf');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Spectral+SC:wght@600;800&display=swap');
