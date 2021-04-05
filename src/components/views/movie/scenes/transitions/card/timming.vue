@@ -52,8 +52,8 @@ export default {
 
 
 .title-chapter{
-  font-family: "Arimo", serif;
-  font-weight: 800;
+  font-family: "RosaMarena", serif;
+  //font-weight: 800;
   //text-decoration-line: underline;
   text-transform: uppercase;
   font-size: 28px;
@@ -61,10 +61,10 @@ export default {
 }
 
 .chapter-one__description, .chapter-two__description {
-  text-align: left;
+  text-align: center;
   font-family: "Arimo", serif;
   //font-weight: 200;
-  font-size: 22px;
+  font-size: 17px;
   & div{
     margin: 20px 0;
   }

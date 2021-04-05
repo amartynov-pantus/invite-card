@@ -85,7 +85,7 @@ export default {
   margin-top: 60px;
 
   & .legend-detail__actors{
-    margin-top: 15px;
+    margin-top: 59px;
 
     & span {
       display: block;

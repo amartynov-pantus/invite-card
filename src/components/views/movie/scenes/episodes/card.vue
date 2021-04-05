@@ -4,59 +4,8 @@
     Переверни :)
   </div>
 
-<!--  <label :class="['wrapper', { 'animation-roll': showRoll }]"  >-->
 
-
-<!--    <transition name="animation-rotate" mode="out-in">-->
-<!--      <div v-if="showRotate" class="card" @animationend="unlocked" >-->
-
-<!--        <div class="front" @click="goNextScene" >-->
-
-<!--          <div class="bg-frame wrapper" v-show="showRoll">-->
-
-
-
-
-<!--            <div class="box-gold-frame">-->
-<!--              <img-->
-
-<!--                  class="bg-gold-frame"-->
-<!--                  :src="require('@/assets/images/bg-gold-frame.svg')"-->
-<!--                  alt="Icon Applicabilities"-->
-<!--              />-->
-<!--            </div>-->
-
-
-<!--          </div>-->
-
-<!--          <div class="logo" v-if="showRoll"  id="front-logo">-->
-
-<!--            <span class="name1" >Андрей</span>-->
-<!--            <span class="ampersand">и</span>-->
-<!--            <span class="name2">София</span>-->
-<!--&lt;!&ndash;            <span class="date">05.06.2021</span>&ndash;&gt;-->
-<!--          </div>-->
-
-
-
-
-
-
-<!--        </div>-->
-
-
-
-
-<!--      </div>-->
-<!--    </transition>-->
-
-<!--  </label>-->
-
-
-
-
-
-  <label :class="['wrapper', { 'animation-roll': showRoll }]" @click.prevent="test">
+  <label :class="['wrapper', { 'animation-roll': showRoll }]" @click.prevent="goNextTransition">
     <input type="checkbox"   v-if="showRoll" :checked="inputIsChecked"/>
     <transition name="animation-rotate" mode="out-in">
 
@@ -96,13 +45,14 @@
 
 
 
-      <div class="back" @click.prevent="goNextTransition">
+      <div class="back" >
 
 
         <div class="bg-frame-back " v-if="showBackFrame">
 
           <div class="box">
             <div class="content">
+
 
               <component :is="orderTransitionName[orderCurrentElement]" />
 
@@ -127,13 +77,16 @@
 
 
 
+
+
+
 </div>
 </template>
 
 <script>
 import Story from "@/components/views/movie/scenes/transitions/card/story";
 import Timming from "@/components/views/movie/scenes/transitions/card/timming";
-import Result from "@/components/views/movie/scenes/transitions/card/result";
+import Result from "@/components/views/movie/scenes/transitions/card/result/result";
 export default {
 name: "front",
   components: {Result, Timming, Story},
@@ -146,7 +99,7 @@ name: "front",
 
       inputIsChecked: false,
 
-      orderCurrentElement: 0,
+      orderCurrentElement: -1,
       orderTransitionName: ['Story',  'Timming', 'Result']
 
 
@@ -163,9 +116,15 @@ name: "front",
     goNextTransition(){
 
       console.log('next tranc')
+      this.inputIsChecked = true
 
-      this.orderCurrentElement = this.orderCurrentElement + 1;
+
+      if (this.orderCurrentElement < this.orderTransitionName.length-1){
+        this.orderCurrentElement = this.orderCurrentElement + 1;
+      }
+
       // this.$emit('update:sceneEndingName', 'front')
+      console.log(this.orderCurrentElement)
 
     },
 
