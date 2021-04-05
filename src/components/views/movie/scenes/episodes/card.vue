@@ -56,14 +56,14 @@
 
 
 
-  <label :class="['wrapper', { 'animation-roll': showRoll }]">
-    <input type="checkbox"   v-if="showRoll"/>
+  <label :class="['wrapper', { 'animation-roll': showRoll }]" @click.prevent="test">
+    <input type="checkbox"   v-if="showRoll" :checked="inputIsChecked"/>
     <transition name="animation-rotate" mode="out-in">
 
 
-    <div class="card" v-if="showRotate" @animationend="unlocked">
+    <div class="card" v-if="showRotate" @animationend="unlocked" @click="goBack">
 
-      <div class="front" @click="goBack">
+      <div class="front"  >
 
         <div class="bg-frame wrapper" v-show="showRoll">
 
@@ -96,14 +96,16 @@
 
 
 
-      <div class="back">
+      <div class="back" @click.prevent="goNextTransition">
 
 
         <div class="bg-frame-back " v-if="showBackFrame">
 
           <div class="box">
             <div class="content">
-              <Legend v-if="true" />
+
+              <component :is="orderTransitionName[orderCurrentElement]" />
+
             </div>
           </div>
         </div>
@@ -111,7 +113,6 @@
 
 
 
-        <Timming v-if="false"/>
 
 
       </div>
@@ -130,17 +131,23 @@
 </template>
 
 <script>
-import Legend from "@/components/views/movie/scenes/transitions/card/legend";
+import Story from "@/components/views/movie/scenes/transitions/card/story";
 import Timming from "@/components/views/movie/scenes/transitions/card/timming";
+import Result from "@/components/views/movie/scenes/transitions/card/result";
 export default {
 name: "front",
-  components: {Timming, Legend},
+  components: {Result, Timming, Story},
   data() {
     return {
       showRotate: false,
       showRoll: false,
 
       showBackFrame: false,
+
+      inputIsChecked: false,
+
+      orderCurrentElement: 0,
+      orderTransitionName: ['Story',  'Timming', 'Result']
 
 
     }
@@ -153,14 +160,26 @@ name: "front",
       this.showRoll = true
     },
 
-    goNextScene(){
+    goNextTransition(){
 
-      this.$emit('update:sceneEndingName', 'front')
+      console.log('next tranc')
+
+      this.orderCurrentElement = this.orderCurrentElement + 1;
+      // this.$emit('update:sceneEndingName', 'front')
 
     },
 
     goBack(){
+
       this.showBackFrame = true
+
+
+
+    },
+    test(){
+      console.log('test')
+      this.inputIsChecked = true
+
     }
 
   },
@@ -201,6 +220,12 @@ name: "front",
   box-shadow: 0 20px 20px rgba(255, 255, 255, 0.2);
 }
 
+//.fliped{
+//    transform: rotateX(160deg);
+//    -webkit-transform: rotateX(160deg);
+//    box-shadow: 0 20px 20px rgba(255,255,255,.2);
+//}
+
 
 label {
   -webkit-perspective: 1000px;
@@ -217,6 +242,7 @@ label {
   //  transform: rotateX(20deg);
   //  box-shadow: 0 20px 20px rgba(255,255,255,.2);
   //}
+
   &:hover :checked + .card {
     transform: rotateX(160deg);
     -webkit-transform: rotateX(160deg);
