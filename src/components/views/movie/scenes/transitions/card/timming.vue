@@ -6,16 +6,19 @@
     </div>
     <div class="chapter-one__description">
       <div>Торжественная регистрация "Прощай, свобода"</div>
-      <div>
-        <span class="time">13.00 </span>
-        <span class="description">- Сбор актёров</span>
-      </div>
-      <div>
-        <span class="time">13.30 </span>
-        <span class="description">- Камера - мотор</span>
-      </div>
-      <div>
-        <span class="description">Съемочная площадка - Городской ЗАГС</span>
+      <div class="text_plan">
+        <div>
+          <span class="plan-font">13.00 </span>
+          <span class="plan-font">- Сбор актёров</span>
+        </div>
+        <div>
+          <span class="plan-font">13.30 </span>
+          <span class="plan-font">- Камера - мотор</span>
+        </div>
+
+        <div>
+          <span class="plan-font">Съемочная площадка - Городской ЗАГС</span>
+        </div>
       </div>
     </div>
   </div>
@@ -26,12 +29,39 @@
       Эпизод 2
     </div>
     <div class="chapter-two__description">
-      <div>Да здравстует тусовка</div>
+      <div class="">"Да здравстует тусовка"</div>
+
+      <div class="text_plan">
+        <div>
+          <span class="plan-font">14.30 </span>
+          <span class="plan-font">- Фуршет</span>
+        </div>
+        <div>
+          <span class="plan-font">15.00 </span>
+          <span class="plan-font">- Фотосессия</span>
+        </div>
+
+        <div>
+          <span class="plan-font">16.00 </span>
+          <span class="plan-font">- Начало громких тостов и горячих танцев</span>
+        </div>
+
+        <div>
+          <span class="plan-font">22.00 </span>
+          <span class="plan-font">- Завершение мероприятия</span>
+        </div>
+
+        <div>
+          <span class="plan-font">22.30 </span>
+          <span class="plan-font">- Трансфер</span>
+        </div>
+
 
       <div>
-        <span class="time">17.00 </span>
-        <span class="description">- Начало громких тостов и горячих танцев</span>
+        <span class="description"><span class="plan-font">Съемочная площадка - Санаторий "Синяя птица"</span> </span>
       </div>
+      </div>
+
 
     </div>
   </div>
@@ -47,7 +77,7 @@ export default {
 <style scoped lang="scss">
 
 .chapter-two{
-  margin-top: 50px;
+  margin-top: 80px;
 }
 
 
@@ -70,9 +100,45 @@ export default {
   }
 }
 
-.time{
+.plan-font{
   font-family: 'OpenSansCondensed', serif;
-  font-weight: 800;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.text_plan{
+  text-align: left;
+  line-height: 0.5;
+}
+
+
+
+@media screen and (max-width: 900px) {
+  .chapter-two{
+    margin-top: 0;
+  }
+  .title-chapter{
+    font-size: 20px;
+  }
+  .chapter-one__description{
+    font-size: 15px;
+  }
+  .chapter-one__description, .chapter-two__description {
+    & div {
+      margin: 0 !important;
+    }
+    & > div {
+      margin: 10px !important;
+      font-size: 14px;
+    }
+  }
+  .text_plan {
+    margin: 0 !important;
+    line-height: unset;
+  }
+  .plan-font{
+    font-size: 17px;
+  }
 }
 
 </style>

@@ -1,7 +1,7 @@
 <template>
 <div >
   <div class="tooltip-text">
-    Переверни :)
+    Жми, чтобы перевернуть
   </div>
 
 
@@ -76,7 +76,20 @@
   </label>
 
 
-
+  <div class="arrow-navigate" v-if="orderCurrentElement > 0">
+    <div class="arrow-navigate__left" @click="orderCurrentElement > 0   ? orderCurrentElement=orderCurrentElement-1 : null">
+      <img
+          :src="require('@/assets/images/arrowhead-thin-outline-to-the-left.svg')"
+          alt="left arrow"
+      />
+    </div>
+    <div class="arrow-navigate__right" @click="orderCurrentElement < orderTransitionName.length-1  ? orderCurrentElement=orderCurrentElement+1 : null">
+      <img
+          :src="require('@/assets/images/arrow-point-to-right.svg')"
+          alt="right arrow"
+      />
+    </div>
+  </div>
 
 
 
@@ -128,11 +141,8 @@ name: "front",
 
     },
 
-    goBack(){
-
-      this.showBackFrame = true
-
-
+   async goBack(){
+     await setTimeout( () => { this.showBackFrame = true}, 2000)
 
     },
     test(){
@@ -284,8 +294,8 @@ input {
     position: absolute;
     height: 1px;
     width: 493px;
-    bottom: 3px;
-    right: 4px;
+    bottom: -22px;
+    right: -12px;
     background: white;
     border-radius: 32px 4px 4px 32px;
     box-shadow: inset 4px 6px 0px 0px #e4e0ce;
@@ -424,6 +434,109 @@ input {
   height: 90% !important;
   width: 85% !important;
 }
+
+.arrow-navigate {
+  display: flex;
+  height: 20px;
+  justify-content: center;
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  & .arrow-navigate__left, & .arrow-navigate__right {
+    width: 35px;
+    text-align: center;
+    cursor: pointer;
+
+    & img {
+      height: 100%;
+      opacity: .5;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+  }
+
+}
+
+
+//////////////////////////////////////
+// медиа
+//////////////////////////////////////
+
+@media screen and (max-width: 900px) {
+
+  .tooltip-text {
+    font-size: 16px;
+  }
+
+  label {
+    width: 300px;
+    height: 450px;
+
+    &:hover :checked + .card {
+
+
+      transform: rotateX(180deg);
+      -webkit-transform: rotateX(180deg);
+
+      animation: 2s ease-out 0s 1 lowflip;
+
+      @keyframes lowflip {
+        0% {
+          transform: rotateX(160deg);
+          -webkit-transform: rotateX(160deg);
+        }
+
+        100% {    }
+      }
+
+    }
+
+  }
+  .box-gold-frame{
+    height: 435px !important;
+  }
+  .name1, .name2, .ampersand {
+    font-size: 3em !important;
+  }
+  .name1 {
+    top: 15px !important;
+    left: 42px !important;
+  }
+  .ampersand{
+    top: 58px !important;
+    left: 116px !important;
+  }
+  .name2{
+    top: 118px !important;
+    left: 96px !important;
+  }
+
+  .bg-frame {
+    &:before{
+      width: 296px !important;
+      bottom: -6px !important;
+      right: -3px !important;
+    }
+  }
+
+  .content {
+    padding: 19px !important;
+  }
+
+  //.animation-roll:hover .card {
+  //  -webkit-transform: rotateX(10deg) !important;
+  //  transform: rotateX(10deg) !important;
+  //}
+
+}
+
+
 
 
 </style>

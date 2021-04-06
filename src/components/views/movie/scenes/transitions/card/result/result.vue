@@ -60,4 +60,11 @@ export default {
   margin-top: 210px;
 }
 
+@media screen and (max-width: 900px) {
+  .thanks-box{
+    font-size: 40px;
+    margin: 0;
+  }
+}
+
 </style>

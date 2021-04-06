@@ -1,5 +1,5 @@
 <template>
-  <div class="legend-box">
+  <div class="legend-box" >
     <div class="legend-title">ВНИМАНИЕ! ATTENTION! ACHTUNG!</div>
 
     <div class="legend-box-blocks">
@@ -51,7 +51,17 @@
 
 <script>
 export default {
-  name: "story"
+  name: "story",
+  data() {
+    return {
+      showAnimations: false,
+      name1: null,
+      name2: null
+    }
+  },
+  mounted() {
+    this.$r
+  }
 }
 </script>
 
@@ -61,6 +71,25 @@ export default {
 
 .legend-box{
   display: block !important;
+  animation: 3s ease-out 0s 1 back-text;
+  @keyframes back-text{
+    0%{
+      opacity: .0;
+
+    }
+    20%{
+      opacity: .1;
+
+    }
+    60%{
+      opacity: .3;
+
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+
 }
 
 .legend-box-blocks{
@@ -153,6 +182,48 @@ export default {
     margin: 0 5px;
   }
 
+}
+
+
+@media screen and (max-width: 900px) {
+  .legend-title{
+    font-size: 12px !important;
+  }
+  .legend-box-blocks{
+    margin: 0 !important;
+  }
+  .legend-gueusts-person {
+    font-size: 40px;
+  }
+  .legend-event-info{
+    font-size: 15px;
+    margin-top: 8%;
+    .legend-event-info__day{
+      font-size: 63px;
+      line-height: 48px;
+
+    }
+    .legend-event-info__separator{
+      font-size: 52px;
+      line-height: 20px;
+    }
+    & .legend-event-info__separator > span {
+      position: absolute;
+      top: 45%;
+      left: 42%;
+    }
+    & .legend-event-info__location-box {
+      padding-left: 10px;
+    }
+  }
+  .legend-detail{
+    font-size: 14px;
+    margin-top: 24px;
+
+    & .legend-detail__actors{
+      margin-top: 21px;
+    }
+  }
 }
 
 

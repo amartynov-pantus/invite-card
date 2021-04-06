@@ -1,17 +1,11 @@
 <template>
-<!--  <component :is="chapter" :bookmark="bookmark"></component>-->
 
   <div class="book-container">
-
-  {{  currentEpisode !== null ? getNextEpisode(episodeOrderOfPlay, currentEpisode) :  episodeOrderOfPlay[0]}}
-
 
     <scenes
         :bookmark="currentEpisode !== null ? getNextEpisode(episodeOrderOfPlay, currentEpisode) :  episodeOrderOfPlay[0]"
         :sceneEndingName.sync="currentEpisode"
     />
-
-
 
   </div>
 </template>
