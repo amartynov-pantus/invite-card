@@ -1,18 +1,19 @@
 <template>
   <div>
 
-    <div @click="goNextScene" style="color: #dedede; text-align: center">
-      open=============
-    </div>
+<!--    <div @click="goNextScene" style="color: #dedede; text-align: center">-->
+<!--      open=============-->
+<!--    </div>-->
 
     <div class="tooltip-text" >
-      Вам письмо, откройте конверт :)
+      Вам письмо, нажмите на конверт :)
     </div>
+
     <div class="wrapper">
 
       <div class="mail">
-        <div class="cover" @click="goNextScene"></div>
-        <div class="letter"><h1>открыть</h1></div>
+        <div class="cover" ></div>
+        <div class="letter" ><h1 @click="goNextScene" class="open-text">открыть</h1></div>
       </div>
 
     </div>
@@ -28,6 +29,7 @@ export default {
 
   methods: {
     goNextScene(){
+      console.log('op')
       this.$emit('update:sceneEndingName', 'mail')
     }
   }
@@ -49,7 +51,7 @@ export default {
   border-bottom-left-radius: 20px;
   /* Lower left corner */
   border-bottom-right-radius: 20px;
-  cursor: pointer;
+  //cursor: pointer;
   /* Mouse style */
   &:before {
     /* add before */
@@ -104,7 +106,7 @@ export default {
 .letter {
   /* Card */
   position: absolute;
-  z-index: 3;
+  //z-index: 3;
   top: 0px;
   left: 10px;
   background: #dedede;
@@ -117,19 +119,24 @@ export default {
 
   h1 {
     /* @ symbol */
+    z-index: 100;
     position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 25%;
+    left: 30%;
+    //transform: translate(-50%, -50%);
     font-size: 30px;
     color: #798992;
     font-weight: 900;
-    animation: blink 1s linear infinite;
+    animation: blink 1s linear ;
     animation-delay: 3s;
+    animation-iteration-count: 3;
     text-decoration-line: underline;
+    cursor: pointer;
   }
 }
-
+h1 {
+  cursor: pointer;
+}
 @keyframes blink {
   0% {
     opacity: 0;
@@ -142,6 +149,9 @@ export default {
   100% {
     opacity: 1;
   }
+}
+.open-text{
+  opacity: 0;
 }
 
 .mail:hover {
@@ -156,6 +166,23 @@ export default {
     /* Use top to move */
     transition: all 1s 1s ease;
   }
+  .open-text{
+    z-index: 20;
+    opacity: 1;
+  }
+
+}
+
+
+@media screen and (max-width: 900px) {
+  .tooltip-text{
+    font-size: 16px;
+  }
+
+  .mail:hover {
+    transition: none;
+  }
+
 }
 
 

@@ -480,11 +480,8 @@ input {
 
     &:hover :checked + .card {
 
-
-      transform: rotateX(180deg);
-      -webkit-transform: rotateX(180deg);
-
-      animation: 2s ease-out 0s 1 lowflip;
+      animation: 300ms ease-in-out 500ms 1 lowflip;
+      animation-fill-mode: forwards;
 
       @keyframes lowflip {
         0% {
@@ -492,7 +489,15 @@ input {
           -webkit-transform: rotateX(160deg);
         }
 
-        100% {    }
+        50% {
+          transform: rotateX(190deg);
+          -webkit-transform: rotateX(190deg);
+        }
+
+        100% {
+          transform: rotateX(180deg);
+          -webkit-transform: rotateX(180deg);
+        }
       }
 
     }

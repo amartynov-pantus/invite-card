@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Front from "@/components/views/movie/scenes/episodes/card";
+import Card from "@/components/views/movie/scenes/episodes/card";
 import Loading from "@/components/views/movie/scenes/episodes/loading";
 import Mail from "@/components/views/movie/scenes/episodes/mail";
 
@@ -19,7 +19,7 @@ export default {
   components: {
     Mail,
     Loading,
-    Front
+    Card
   },
   props: {
     bookmark: {

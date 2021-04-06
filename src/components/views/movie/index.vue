@@ -20,7 +20,8 @@ name: "movie",
   data(){
     return{
       // порядок сцен
-      episodeOrderOfPlay: ['front',],
+      episodeOrderOfPlay: [ 'loading','mail' ,'card',],
+      // episodeOrderOfPlay: [ 'card',],
       currentEpisode: null,
     }
   },

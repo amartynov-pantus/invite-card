@@ -1,7 +1,7 @@
 <template>
 
       <div class="wrapper">
-        <img :src = "require('@/assets/images/loadimg.gif')" height="200"/>
+        <img :src = "require('@/assets/images/loadimg.gif')" class="loading-img"/>
         <div class="tooltip-text">Загрузка..</div>
       </div>
 
@@ -16,6 +16,20 @@ name: "loading",
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+
+.loading-img{
+  height: 200px;
+}
+
+
+@media screen and (max-width: 900px) {
+  .loading-img{
+    height: 100px;
+  }
+  .tooltip-text{
+    font-size: 16px;
+  }
+}
 
 </style>
