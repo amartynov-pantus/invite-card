@@ -3,7 +3,7 @@
     <div class="legend-title">ВНИМАНИЕ! ATTENTION! ACHTUNG!</div>
 
     <div class="legend-box-blocks">
-      <div class="legend-gueusts-person">Никита и Татьяна</div>
+      <div class="legend-gueusts-person">{{this.$route.query.name1}} и {{this.$route.query.name2}}</div>
 
       <div class="legend-event-info">
 
@@ -55,13 +55,10 @@ export default {
   data() {
     return {
       showAnimations: false,
-      name1: null,
-      name2: null
     }
   },
   mounted() {
-    this.$router.push('home' )
-    console.log(this.$route)
+    console.log(this.$route.query)
   }
 }
 </script>
