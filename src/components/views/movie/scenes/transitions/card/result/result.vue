@@ -34,6 +34,27 @@ export default {
   //display: flex;
   //align-items: center;
   //height: 100%;
+
+  animation: 1s ease-out 0s 1 opacity-text;
+  @keyframes opacity-text{
+    0%{
+      opacity: .0;
+
+    }
+    20%{
+      opacity: .1;
+
+    }
+    60%{
+      opacity: .3;
+
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+
+
 }
 
 .timer-box{
@@ -63,7 +84,10 @@ export default {
 @media screen and (max-width: 900px) {
   .thanks-box{
     font-size: 40px;
-    margin: 0;
+    margin-top: 80px;
+  }
+  .timer-box{
+    margin-top: 43px;
   }
 }
 

@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="timming-box">
   <div class="chapter-one">
     <div class="title-chapter">
       Эпизод 1
@@ -76,6 +76,28 @@ export default {
 
 <style scoped lang="scss">
 
+
+.timming-box {
+  animation: 1s ease-out 0s 1 opacity-text;
+  @keyframes opacity-text{
+    0%{
+      opacity: .0;
+
+    }
+    20%{
+      opacity: .1;
+
+    }
+    60%{
+      opacity: .3;
+
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+}
+
 .chapter-two{
   margin-top: 80px;
 }
@@ -137,7 +159,7 @@ export default {
     line-height: unset;
   }
   .plan-font{
-    font-size: 17px;
+    font-size: 16px;
   }
 }
 

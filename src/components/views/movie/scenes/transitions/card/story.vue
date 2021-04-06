@@ -3,7 +3,7 @@
     <div class="legend-title">ВНИМАНИЕ! ATTENTION! ACHTUNG!</div>
 
     <div class="legend-box-blocks">
-      <div class="legend-gueusts-person">{{this.$route.query.name1}} и {{this.$route.query.name2}}</div>
+      <div class="legend-gueusts-person">{{this.$route.query.name1}} и <br> {{this.$route.query.name2}}</div>
 
       <div class="legend-event-info">
 
@@ -91,7 +91,7 @@ export default {
 }
 
 .legend-box-blocks{
-  margin-top: 115px;
+  margin-top: 52px;
 }
 
 .legend-title{
@@ -104,6 +104,7 @@ export default {
   font-family: "RosaMarena", serif;
   font-size: 51px;
   margin-top: 25px;
+  line-height: 1.5;
 }
 
 .legend-detail{
@@ -192,18 +193,19 @@ export default {
   }
   .legend-gueusts-person {
     font-size: 40px;
+    margin-top: 15px;
   }
   .legend-event-info{
     font-size: 15px;
-    margin-top: 8%;
+    margin-top: 4%;
     .legend-event-info__day{
       font-size: 63px;
-      line-height: 48px;
+      line-height: 47px;
 
     }
     .legend-event-info__separator{
       font-size: 52px;
-      line-height: 20px;
+      line-height: 37px;
     }
     & .legend-event-info__separator > span {
       position: absolute;
@@ -216,7 +218,7 @@ export default {
   }
   .legend-detail{
     font-size: 14px;
-    margin-top: 24px;
+    margin-top: 18px;
 
     & .legend-detail__actors{
       margin-top: 21px;

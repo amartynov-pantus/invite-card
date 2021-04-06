@@ -14,7 +14,7 @@
 
 <script>
 
-import FlipCountdown from 'vue2-flip-countdown'
+import FlipCountdown from '@/components/views/movie/scenes/transitions/card/result/FlipCountdown'
 
 export default {
 name: "timer",
