@@ -60,7 +60,8 @@ export default {
     }
   },
   mounted() {
-    this.$r
+    this.$router.push('home' )
+    console.log(this.$route)
   }
 }
 </script>
