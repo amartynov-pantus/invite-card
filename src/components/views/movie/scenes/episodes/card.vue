@@ -123,7 +123,7 @@ name: "front",
   methods: {
     unlocked(){
       console.log('end')
-      this.showRoll = true
+      // this.showRoll = true
     },
 
     goNextTransition(){
@@ -155,6 +155,8 @@ name: "front",
 
   mounted() {
     this.showRotate = true
+    setTimeout( () => { this.showRoll = true}, 3000)
+
   }
 
 }
@@ -480,7 +482,7 @@ input {
 
     &:hover :checked + .card {
 
-      animation: 300ms ease-in-out 500ms 1 lowflip;
+      animation: 100ms ease-in-out 500ms 1 lowflip;
       animation-fill-mode: forwards;
 
       @keyframes lowflip {

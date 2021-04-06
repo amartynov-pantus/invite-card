@@ -3,7 +3,10 @@
     <div class="legend-title">ВНИМАНИЕ! ATTENTION! ACHTUNG!</div>
 
     <div class="legend-box-blocks">
-      <div class="legend-gueusts-person">{{this.$route.query.name1}} и <br> {{this.$route.query.name2}}</div>
+      <div class="legend-gueusts-person">
+        {{this.$route.query.name1}}
+        <template v-if="this.$route.query.name2"> и {{this.$route.query.name2}}</template>
+      </div>
 
       <div class="legend-event-info">
 
@@ -15,7 +18,7 @@
           </div>
 
         </div>
-        <div class="legend-event-info__separator"><span>|</span></div>
+        <div class="legend-event-info__separator">|</div>
         <div class="legend-event-info__location-box">
           <div>
             <span class="event-time">13.30 Регистрация</span>
@@ -105,6 +108,9 @@ export default {
   font-size: 51px;
   margin-top: 25px;
   line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .legend-detail{
@@ -177,8 +183,8 @@ export default {
 
   .legend-event-info__separator{
     font-size: 74px;
-    line-height: 62px;
-    margin: 0 5px;
+    //line-height: 62px;
+    //margin: 0 5px;
   }
 
 }
@@ -194,26 +200,25 @@ export default {
   .legend-gueusts-person {
     font-size: 40px;
     margin-top: 15px;
+    height: 100px;
   }
   .legend-event-info{
-    font-size: 15px;
-    margin-top: 4%;
+    font-size: 14px;
+    margin-top: 10px;
     .legend-event-info__day{
-      font-size: 63px;
-      line-height: 47px;
+      font-size: 60px;
+      line-height: 44px;
 
     }
     .legend-event-info__separator{
       font-size: 52px;
-      line-height: 37px;
+      //width: 7px;
+      display: inline-table;
+      //line-height: 37px;
     }
-    & .legend-event-info__separator > span {
-      position: absolute;
-      top: 45%;
-      left: 42%;
-    }
+
     & .legend-event-info__location-box {
-      padding-left: 10px;
+      //margin-left: 10px;
     }
   }
   .legend-detail{
