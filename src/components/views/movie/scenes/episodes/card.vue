@@ -76,18 +76,22 @@
   </label>
 
 
-  <div class="arrow-navigate" v-if="orderCurrentElement > 0">
-    <div class="arrow-navigate__left" @click="orderCurrentElement > 0   ? orderCurrentElement=orderCurrentElement-1 : null">
-      <img
-          :src="require('@/assets/images/arrowhead-thin-outline-to-the-left.svg')"
-          alt="left arrow"
-      />
-    </div>
-    <div class="arrow-navigate__right" @click="orderCurrentElement < orderTransitionName.length-1  ? orderCurrentElement=orderCurrentElement+1 : null">
-      <img
-          :src="require('@/assets/images/arrow-point-to-right.svg')"
-          alt="right arrow"
-      />
+  <div class="arrow-wrapper">
+    <div class="arrow-navigate" v-if="orderCurrentElement >= 0">
+      <div class="arrow-navigate__left"
+           @click="orderCurrentElement > 0   ? orderCurrentElement=orderCurrentElement-1 : null">
+        <img
+            :src="require('@/assets/images/arrowhead-thin-outline-to-the-left.svg')"
+            alt="left arrow"
+        />
+      </div>
+      <div class="arrow-navigate__right"
+           @click="orderCurrentElement < orderTransitionName.length-1  ? orderCurrentElement=orderCurrentElement+1 : null">
+        <img
+            :src="require('@/assets/images/arrow-point-to-right.svg')"
+            alt="right arrow"
+        />
+      </div>
     </div>
   </div>
 
@@ -437,18 +441,22 @@ input {
   width: 85% !important;
 }
 
-.arrow-navigate {
-  display: flex;
+
+.arrow-wrapper{
   height: 20px;
-  justify-content: center;
+  width: 100%;
   position: absolute;
   top: 95%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+}
+
+.arrow-navigate {
+  height: 100%;
+  display: flex;
+  justify-content: center;
 
   & .arrow-navigate__left, & .arrow-navigate__right {
-    width: 35px;
+    width: 50px;
+    height: 100%;
     text-align: center;
     cursor: pointer;
 
@@ -483,8 +491,25 @@ input {
     &:hover :checked + .card {
 
       animation: 100ms ease-in-out 500ms 1 lowflip;
+      -webkit-animation: 100ms ease-in-out 500ms 1 lowflip;
       animation-fill-mode: forwards;
+      -webkit-animation-fill-mode: forwards;
+      @-webkit-keyframes  lowflip{
+        0% {
+          transform: rotateX(160deg);
+          -webkit-transform: rotateX(160deg);
+        }
 
+        50% {
+          transform: rotateX(190deg);
+          -webkit-transform: rotateX(190deg);
+        }
+
+        100% {
+          transform: rotateX(180deg);
+          -webkit-transform: rotateX(180deg);
+        }
+      }
       @keyframes lowflip {
         0% {
           transform: rotateX(160deg);
@@ -501,7 +526,6 @@ input {
           -webkit-transform: rotateX(180deg);
         }
       }
-
     }
 
   }

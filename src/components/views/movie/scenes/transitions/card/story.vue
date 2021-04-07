@@ -4,7 +4,7 @@
 
     <div class="legend-box-blocks">
       <div class="legend-gueusts-person">
-        {{this.$route.query.name1}}
+        {{this.$route.query.dear}} {{this.$route.query.name1}}
         <template v-if="this.$route.query.name2"> и {{this.$route.query.name2}}</template>
       </div>
 
@@ -198,7 +198,7 @@ export default {
     margin: 0 !important;
   }
   .legend-gueusts-person {
-    font-size: 40px;
+    font-size: 30px;
     margin-top: 15px;
     height: 100px;
   }
@@ -208,7 +208,6 @@ export default {
     .legend-event-info__day{
       font-size: 60px;
       line-height: 44px;
-
     }
     .legend-event-info__separator{
       font-size: 52px;

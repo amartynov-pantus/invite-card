@@ -184,6 +184,15 @@ h1 {
     transition: none;
   }
 
+  .cover{
+    &:before {
+      display: none;
+    }
+  }
+  .letter h1{
+    top: 14%;
+  }
+
 }
 
 
