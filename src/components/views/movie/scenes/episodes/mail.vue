@@ -31,7 +31,7 @@ export default {
     goNextScene(){
       console.log('op')
         this.$emit('update:sceneEndingName', 'mail')
-      // this.$emit('update:sceneEndingName', 'mail')
+
     }
   }
 
