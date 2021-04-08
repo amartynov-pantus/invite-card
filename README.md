@@ -1,40 +1,23 @@
 # invite-card
 
-## Project setup
+###Универсальная открытка-приглашение на свадьбу
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-
-
-
-# build
-npm run build
-
-cd dist
-
-git init
-git add -A
-git commit -m 'deploy'
-
-git push -f  https://amartynov-pantus@github.com/amartynov-pantus/invite-card.git  master:pre-page
-
+- Анимированная
+- Очень легко настроить
+- Адаптирована под мобильные устройства Android, iOS и ПК
+- Никаких файлов, просто кидаете ссылку и всё
 
 ```
 
+### Как использовать
+```
+Пример:
+https://amartynov-pantus.github.io/invite-card/?guest=Дорогие Роман и Александра!
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
+В конец ссылки после "guest=" подставить свой текст
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+По всем вопросам пишите мне вк 
+
+https://vk.com/matzuo
+
