@@ -20,7 +20,7 @@ git init
 git add -A
 git commit -m 'deploy'
 
-git push -f  https://github.com/amartynov-pantus/invite-card.git  master:pre-page
+git push -f  https://amartynov-pantus@github.com/amartynov-pantus/invite-card.git  master:pre-page
 
 
 ```

@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy": "npm run build && cd dist && git init && git add -A && git commit -m 'deploy' && git push -f  https://amartynov-pantus@github.com/amartynov-pantus/invite-card.git  master:pre-page && cd .."
   },
   "dependencies": {
     "core-js": "^3.6.5",
