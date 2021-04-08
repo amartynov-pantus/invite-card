@@ -1,11 +1,11 @@
 <template>
 <div >
-  <div class="tooltip-text">
+  <div class="tooltip-text" ref="lol">
     Жми, чтобы перевернуть
   </div>
 
 
-  <label :class="['wrapper', { 'animation-roll': showRoll }]" @click.prevent="goNextTransition">
+  <label :class="['wrapper', { 'animation-roll': showRoll }, {'nosafari': !isMobileSafari()}, {'safari': isMobileSafari()}]" @click.prevent="goNextTransition" v-if="lol">
     <input type="checkbox"   v-if="showRoll" :checked="inputIsChecked"/>
     <transition name="animation-rotate" mode="out-in">
 
@@ -115,7 +115,7 @@ name: "front",
       showBackFrame: false,
 
       inputIsChecked: false,
-
+      lol: true,
       orderCurrentElement: -1,
       orderTransitionName: ['Story',  'Timming', 'Result']
 
@@ -125,6 +125,15 @@ name: "front",
   },
 
   methods: {
+
+    isMobileSafari() {
+      const ua = window.navigator.userAgent;
+      const iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
+      const webkit = !!ua.match(/WebKit/i);
+      const iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
+      return iOSSafari
+    },
+
     unlocked(){
       console.log('end')
       // this.showRoll = true
@@ -143,22 +152,20 @@ name: "front",
       // this.$emit('update:sceneEndingName', 'front')
       console.log(this.orderCurrentElement)
 
+
+
     },
 
    async goBack(){
      await setTimeout( () => { this.showBackFrame = true}, 2000)
 
     },
-    test(){
-      console.log('test')
-      this.inputIsChecked = true
-
-    }
 
   },
 
   mounted() {
     this.showRotate = true
+
     setTimeout( () => { this.showRoll = true}, 3000)
 
   }
@@ -190,8 +197,8 @@ name: "front",
 }
 
 .animation-roll:hover .card {
-  -webkit-transform: rotateX(20deg);
-  transform: rotateX(20deg);
+  //-webkit-transform: rotateX(20deg);
+  //transform: rotateX(20deg);
   box-shadow: 0 20px 20px rgba(255, 255, 255, 0.2);
 }
 
@@ -202,7 +209,76 @@ name: "front",
 //}
 
 
-label {
+.nosafari {
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  display: block;
+  width: 500px;
+  height: 750px;
+  cursor: pointer;
+
+  &:hover .card {
+    -webkit-transform: rotateX(20deg);
+    transform: rotateX(20deg);
+    box-shadow: 0 20px 20px rgba(255,255,255,.2);
+  }
+
+  //&:hover :checked + .card {
+  //  transform: rotateX(160deg);
+  //  -webkit-transform: rotateX(160deg);
+  //  box-shadow: 0 20px 20px rgba(255,255,255,.2);
+  //}
+
+  &:hover :checked + .card {
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+      transform: rotateX(180deg);
+      -webkit-transform: rotateX(180deg);
+    animation: 2s ease-in-out 300ms 1 lowflip;
+    -webkit-animation: 2s ease-in-out 300ms 1 lowflip;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+    @-webkit-keyframes  lowflip{
+      0% {
+        transform: rotateX(180deg);
+        -webkit-transform: rotateX(180deg);
+      }
+
+      50% {
+        transform: rotateX(190deg);
+        -webkit-transform: rotateX(190deg);
+      }
+
+      100% {
+        transform: rotateX(180deg);
+        -webkit-transform: rotateX(180deg);
+      }
+    }
+    @keyframes lowflip {
+      0% {
+        transform: rotateX(180deg);
+        -webkit-transform: rotateX(180deg);
+      }
+
+      50% {
+        transform: rotateX(190deg);
+        -webkit-transform: rotateX(190deg);
+      }
+
+      100% {
+        transform: rotateX(180deg);
+        -webkit-transform: rotateX(180deg);
+      }
+    }
+  }
+
+}
+
+.safari {
   -webkit-perspective: 1000px;
   perspective: 1000px;
   -webkit-transform-style: preserve-3d;
@@ -218,11 +294,27 @@ label {
   //  box-shadow: 0 20px 20px rgba(255,255,255,.2);
   //}
 
+  //&:hover :checked + .card {
+  //  transform: rotateX(160deg);
+  //  -webkit-transform: rotateX(160deg);
+  //  box-shadow: 0 20px 20px rgba(255,255,255,.2);
+  //}
+
   &:hover :checked + .card {
-    transform: rotateX(160deg);
-    -webkit-transform: rotateX(160deg);
-    box-shadow: 0 20px 20px rgba(255,255,255,.2);
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
+
   }
+
+}
+
+:checked + .card {
+  transform: rotateX(180deg);
+  -webkit-transform: rotateX(180deg);
 }
 
 .card {
@@ -259,10 +351,7 @@ input {
   display: none;
 }
 
-:checked + .card {
-  transform: rotateX(180deg);
-  -webkit-transform: rotateX(180deg);
-}
+
 
 .front {
   background: url('~@/assets/images/marble.jpg') no-repeat center center;
@@ -484,51 +573,11 @@ input {
     font-size: 16px;
   }
 
-  label {
+  .safari, .nosafari {
     width: 300px;
     height: 450px;
-
-    &:hover :checked + .card {
-
-      animation: 100ms ease-in-out 500ms 1 lowflip;
-      -webkit-animation: 100ms ease-in-out 500ms 1 lowflip;
-      animation-fill-mode: forwards;
-      -webkit-animation-fill-mode: forwards;
-      @-webkit-keyframes  lowflip{
-        0% {
-          transform: rotateX(160deg);
-          -webkit-transform: rotateX(160deg);
-        }
-
-        50% {
-          transform: rotateX(190deg);
-          -webkit-transform: rotateX(190deg);
-        }
-
-        100% {
-          transform: rotateX(180deg);
-          -webkit-transform: rotateX(180deg);
-        }
-      }
-      @keyframes lowflip {
-        0% {
-          transform: rotateX(160deg);
-          -webkit-transform: rotateX(160deg);
-        }
-
-        50% {
-          transform: rotateX(190deg);
-          -webkit-transform: rotateX(190deg);
-        }
-
-        100% {
-          transform: rotateX(180deg);
-          -webkit-transform: rotateX(180deg);
-        }
-      }
-    }
-
   }
+
   .box-gold-frame{
     height: 435px !important;
   }

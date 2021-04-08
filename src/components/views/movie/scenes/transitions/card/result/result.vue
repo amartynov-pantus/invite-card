@@ -2,6 +2,8 @@
 <div class="result-box">
   <div>
 
+    <div class="hashtag">#martinovypictures</div>
+
     <div class="thanks-box">
       Ваше участие для нас необходимо!
     </div>
@@ -74,20 +76,29 @@ export default {
   }
 }
 
+.hashtag{
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
 .thanks-box{
   margin: auto;
   font-family: "RosaMarena", serif;
   font-size: 60px;
-  margin-top: 210px;
+  margin-top: 200px;
 }
 
 @media screen and (max-width: 900px) {
   .thanks-box{
     font-size: 40px;
-    margin-top: 80px;
+    margin-top: 70px;
   }
   .timer-box{
     margin-top: 43px;
+  }
+  .hashtag{
+    font-size: 17px;
+
   }
 }
 

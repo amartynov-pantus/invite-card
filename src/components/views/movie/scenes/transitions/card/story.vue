@@ -4,8 +4,9 @@
 
     <div class="legend-box-blocks">
       <div class="legend-gueusts-person">
-        {{this.$route.query.dear}} {{this.$route.query.name1}}
-        <template v-if="this.$route.query.name2"> и {{this.$route.query.name2}}</template>
+<!--        {{this.$route.query.dear}} {{this.$route.query.name1}}-->
+<!--        <template v-if="this.$route.query.name2"> и {{this.$route.query.name2}}</template>-->
+        {{this.$route.query.guest}}
       </div>
 
       <div class="legend-event-info">
@@ -107,7 +108,7 @@ export default {
   font-family: "RosaMarena", serif;
   font-size: 51px;
   margin-top: 25px;
-  line-height: 1.5;
+  line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
